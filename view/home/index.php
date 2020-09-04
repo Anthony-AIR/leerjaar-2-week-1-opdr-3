@@ -8,6 +8,8 @@
             <th>First Name</th>
             <th>Last Name</th>
             <th>birthday</th>
+            <th>delete</th>
+            <th>update</th>
           </tr>
         </thead>
         <tbody>
@@ -19,6 +21,8 @@
                   <td><?php echo $data["name"]?></td>
                   <td><?php echo $data["lastName"]?></td>
                   <td><?php echo $data["geboorteDatum"]?></td>
+                  <td><button href="<?php echo URL ?>home/delete/<?php echo $data["id"] ?>" class="btn btn-danger">delete</button></td>
+                  <td><button class="btn btn-success">update</button></td>
                 </tr>
             <?php
                 }
