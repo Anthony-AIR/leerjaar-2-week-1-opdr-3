@@ -1,28 +1,37 @@
 <?php
     function getAllBirth(){
-        $db = openDatabaseConnection();
-	    $statement = $db->prepare("SELECT * FROM verjaardagen");
+        $conn = openDatabaseConnection();
+	    $statement = $conn->prepare("SELECT * FROM verjaardagen");
 	    $statement->execute();
-	    $db = null;
+	    $conn = null;
         return $statement->fetchAll();
     }
 
-    function createUser($inputName,$inputLastName,$inputBirthday){
-        $db = openDatabaseConnection();
-	    $statement = $db->prepare("INSERT INTO verjaardagen (name, lastName, geboorteDatum) VALUES (:inputName, :inputLastName, :inputBirthday)");
-        $statement->bindParam(":name" , $inputName);
-        $statement->bindParam(":lastName" , $inputLastName);
-        $statement->bindParam(":geboorteDatum" , $inputBirthday);
+    function getBirthById($id){
+        $conn = openDatabaseConnection();
+	    $statement = $conn->prepare("SELECT * FROM verjaardagen WHERE id = :id");
+        $statement->bindParam(":id", $id);
+        $statement->execute();
+	    $conn = null;
+        return $statement->fetchAll();
+    }
+
+    function createUser($name,$lastName,$geboorteDatum){
+        $conn = openDatabaseConnection();
+	    $statement = $conn->prepare("INSERT INTO verjaardagen (name, lastName, geboorteDatum) VALUES (:name, :lastName, :geboorteDatum)");
+        $statement->bindParam(":name" , $name);
+        $statement->bindParam(":lastName" , $lastName);
+        $statement->bindParam(":geboorteDatum" , $geboorteDatum);
         $statement->execute();
     }
 
-    function updateUser($name, $lastName, $birthday, $id){
+    function updateUser($data, $id){
         $conn=openDatabaseConnection();
-        $statement = $conn->prepare("UPDATE horses SET name = :name,  lastName = :lastName, geboorteDatum = :birthday WHERE id = :id");
+        $statement = $conn->prepare("UPDATE verjaardagen SET name = :name,  lastName = :lastName, geboorteDatum = :geboorteDatum WHERE id = :id");
         $statement->bindParam(":id", $id);
-        $statement->bindParam(":name" , $name);
-        $statement->bindParam(":lastName" , $lastName);
-        $statement->bindParam(":geboorteDatum" , $birthday);
+        $statement->bindParam(":name" , $data["name"]);
+        $statement->bindParam(":lastName" , $data["lastName"]);
+        $statement->bindParam(":geboorteDatum" , $data["geboorteDatum"]);
         $statement->execute();
     }
 

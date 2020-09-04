@@ -11,10 +11,10 @@ function create(){
 }
 
 function store(){
-	$inputName=$_POST["inputName"];
-    $inputLastName=$_POST["inputLastName"];
-    $inputBirthday=$_POST["inputBirthday"];
-	createUser($inputName,$inputLastName,$inputBirthday);
+	$name=$_POST["name"];
+    $lastName=$_POST["lastName"];
+    $geboorteDatum=$_POST["geboorteDatum"];
+	createUser($name,$lastName,$geboorteDatum);
 	index();
 }
 
@@ -24,5 +24,14 @@ function delete($id){
 
 function destroy($id){
 	deleteUser($id);
+	index();
+}
+
+function update($id){
+	render("home/update", array("birthday" => getBirthById($id)));
+}
+
+function edit($id){
+	updateUser($_POST, $id);
 	index();
 }
