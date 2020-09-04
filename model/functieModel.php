@@ -16,6 +16,16 @@
         $statement->execute();
     }
 
+    function updateUser($name, $lastName, $birthday, $id){
+        $conn=openDatabaseConnection();
+        $statement = $conn->prepare("UPDATE horses SET name = :name,  lastName = :lastName, geboorteDatum = :birthday WHERE id = :id");
+        $statement->bindParam(":id", $id);
+        $statement->bindParam(":name" , $name);
+        $statement->bindParam(":lastName" , $lastName);
+        $statement->bindParam(":geboorteDatum" , $birthday);
+        $statement->execute();
+    }
+
     function deleteUser($id){
         $conn = openDatabaseConnection();
 	    $statement = $conn->prepare("DELETE FROM verjaardagen WHERE id = :id ");

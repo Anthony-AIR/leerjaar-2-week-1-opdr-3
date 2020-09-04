@@ -21,8 +21,8 @@
                   <td><?php echo $data["name"]?></td>
                   <td><?php echo $data["lastName"]?></td>
                   <td><?php echo $data["geboorteDatum"]?></td>
-                  <td><button href="<?php echo URL ?>home/delete/<?php echo $data["id"] ?>" class="btn btn-danger">delete</button></td>
-                  <td><button class="btn btn-success">update</button></td>
+                  <td><a class="btn btn-danger" href="<?php echo URL ?>home/delete/<?php echo $data["id"] ?>">delete</a></td>
+                  <td><a class="btn btn-success" href="<?php echo URL ?>home/update/<?php echo $data["id"] ?>">update</a></td>
                 </tr>
             <?php
                 }

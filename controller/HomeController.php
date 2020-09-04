@@ -18,8 +18,8 @@ function store(){
 	index();
 }
 
-function delete(){
-	render("home/delete");
+function delete($id){
+	render("home/delete", ["id" => $id]);
 }
 
 function destroy($id){
