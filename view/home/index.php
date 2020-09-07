@@ -1,7 +1,7 @@
 <div class="container ">
     <br><h1>alle verjaardagen</h1>
 
-    <table class="table table-hover" style="margin-bottom:100px;">
+    <table class="table table-hover" style="margin-bottom:80px;">
         <thead>
           <tr>
             <th></th>

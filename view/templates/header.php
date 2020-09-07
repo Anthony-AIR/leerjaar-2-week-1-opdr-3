@@ -11,9 +11,9 @@
 			<div id="container">
 				<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 					<ul class="d-flex align-self-center">
-						<img src="<?php echo URL ?>public/img/AIR_logo_transparant.png?>" style="width:50px;">&nbsp;&nbsp;&nbsp;&nbsp;
-						<li class="navbar-brand"><a href="<?= URL ?>home/index"><i class="fas fa-users"></i></a></li>
-						<li class="navbar-brand"><a href="<?= URL ?>home/create"><i class="fas fa-user-plus"></i></a></li>
+						<img src="<?php echo URL ?>public/img/AIR_logo_transparant.png?>" style="width:50px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<li class="navbar-brand" style="margin-top:5px;"><a href="<?= URL ?>home/index"><i class="fas fa-users"></i></a></li>&nbsp;&nbsp;&nbsp;
+						<li class="navbar-brand" style="margin-top:5px;"><a href="<?= URL ?>home/create"><i class="fas fa-user-plus"></i></a></li>
 					</ul>
 				</nav>
 			</div>
